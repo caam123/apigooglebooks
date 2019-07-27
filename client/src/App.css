@@ -31,3 +31,22 @@
     transform: rotate(360deg);
   }
 }
+
+nav{
+  background-color: rgb(58, 16, 75);
+}
+
+nav a {
+  color:goldenrod!important;
+  text-transform: uppercase;
+}
+
+
+i{
+  float: left;
+  padding:5px;
+}
+
+nav li:hover{
+  background-color: rgba(255, 255, 255, 0.212);
+}
