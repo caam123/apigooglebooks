@@ -10,8 +10,13 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+/* app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+}); */
+
+//Estas RUTAS se despliegan en el 3001 ! [1]
+app.get("/test", (req, res)=>{
+  res.json({message:"This is testing for route"});
 });
 
 app.listen(PORT, function() {
