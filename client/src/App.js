@@ -1,8 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import  API from "./utils/API.js"
 import axios from "axios";
+import SearchInput from "./components/SearchInput";
+import Navbar from "./components/Navbar";
+import Search from "./pages/Search.js";
 
 
 
@@ -22,20 +25,14 @@ class App extends React.Component {
     )
   };
 
-  
-
   render(){
     return(
       <div>
-      <button type="button" onClick= {this.test} >Click me</button>
-      <h1>{this.state.message}</h1>
+      <Navbar/>
+      <Search/>
       </div>
-
-    )
+    );
   }
-
 };
-
-
 
 export default App;
