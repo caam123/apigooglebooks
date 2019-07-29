@@ -19,10 +19,16 @@ class Search extends React.Component{
         console.log(this.state.search);
     }
 
-    searchClick(e){
+    searchBook = query =>{
+        API.search(query)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    };
+
+    searchClick = e =>{
         e.preventDefault();
-        
-    }
+        this.searchBook(this.state.search)
+    };
 
     render(){
         return(
