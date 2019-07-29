@@ -50,3 +50,42 @@ i{
 nav li:hover{
   background-color: rgba(255, 255, 255, 0.212);
 }
+h1,h4{
+  font-weight: bold;
+}
+
+.search{
+  padding:40px;
+  max-width: 50%;
+}
+
+#search{
+  background-color: rgb(58, 16, 75);
+  color:goldenrod;
+}
+
+input .validate:focus{
+  background-color: red!important
+}
+
+#searchinput:focus{
+  border-bottom: 1px solid goldenrod;
+  box-shadow: none;
+}
+
+.titleResults{
+  border-bottom: 1px solid rgb(58,16,75);
+  width:100%;
+  margin-bottom:50px; 
+  font-weight: bold;
+}
+
+.btn{
+  background-color:rgb(58,16,75);
+  color:goldenrod;
+}
+
+a .btn:hover{
+  background-color: goldenrod!important;
+  color:rgb(58,16,75);
+}
