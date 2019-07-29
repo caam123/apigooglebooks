@@ -89,3 +89,28 @@ a .btn:hover{
   background-color: goldenrod!important;
   color:rgb(58,16,75);
 }
+
+.card.horizontal .card-image img {
+  border-radius: 2px 0 0 2px;
+  width: auto;
+  height:250px;
+}
+
+.titulo{
+  font-weight: bold;
+  color:rgb(58, 16, 75);
+  font-size: 25px;
+}
+
+.autores{
+  color:goldenrod;
+  font-style: italic;
+}
+
+.descripcion{
+  color:#070707;
+}
+
+.card .card-action{
+  padding:8px;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import SearchInput from "../components/SearchInput";
 import axios from "axios";
 import API from "../utils/API.js";
+import BooksCards from "../components/BooksCards";
 
 class Search extends React.Component{
 
@@ -39,6 +40,7 @@ class Search extends React.Component{
                 value={this.state.search}
                 onChange={this.onChange} 
                 searchClick={this.searchClick}/>
+                <BooksCards/>
 
                 {/*Condition for displaying the results*/}
             </main>
