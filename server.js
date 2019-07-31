@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const axios = require("axios");
+const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -16,11 +17,9 @@ if (process.env.NODE_ENV === "production") {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 }); */
 
-//===========================
+//========================================================
 //     ROUTES                
-//===========================
-
-
+//========================================================
 
 //Estas RUTAS se despliegan en el 3001 ! [1]
 
@@ -31,19 +30,20 @@ app.get("/test", (req, res)=>{
 //Searching Books
 
 
+//========================================================
+//     DataBase                
+//========================================================
+
+const mongoURL = process.env.PROD_MONGODB || "mongodb://localhost/apigooglebooks"
 
 
-
-
-
-
-
-
-
-
-
-
-
+mongoose.connect(mongoURL, {useNewUrlParser: true})
+  .then(() => {
+    console.log("🗄 ==> Successfully connected to mongoDB.");
+  })
+  .catch((err) => {
+    console.log(`Error connecting to mongoDB: ${err}`);
+  });
 
 
 
