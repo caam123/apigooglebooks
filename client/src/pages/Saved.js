@@ -3,31 +3,31 @@ import ResultsContainer from "../components/ResultsContainer";
 import API from "../utils/API";
 
 class Saved extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             savedBooks: []
         }
     }
 
-    componentDidMount(){
+    componentWillMount() {
         API.getBooks().then(
             (response) => {
-                this.setState({savedBooks: response.data})
+                this.setState({savedBooks: response.data});
             }
         ).catch(
-            (err) =>{
+            (err) => {
                 console.log(err);
             }
         );
     }
 
-    render(){
-        console.log(this.savedBooks);
+    render() {
+        console.log(this.state.savedBooks);
         return(
             <main>
-                <ResultsContainer savedBooks = {this.savedBooks} path={this.props.match.path}/>
-            </main>    
+                <ResultsContainer savedBooks={this.state.savedBooks} path={this.props.match.path}/>
+            </main>
         );
     }
 }

@@ -50,7 +50,11 @@ class BooksCards extends React.Component {
             <div className = "col s12">
                 <div className="card horizontal col s12" id={this.props.id}>
                     <div className="card-image">
-                    <img src={this.props.img.smallThumbnail}/>    
+                    {(this.props.img)? <img src= {
+                        // if smallthubmail exists on this.props.img use that else if thumbnail exists on this.props.img use that else leave src empty
+                        (this.props.img.smallThumbnail)? this.props.img.smallThumbnail:
+                        (this.props.img)? this.props.img: ""
+                    } alt="book cover"/>: null}
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
@@ -64,7 +68,7 @@ class BooksCards extends React.Component {
                             View
                             </button>
                             </a>
-                            <a href="#">
+                            <a href={this.props.link}>
                             <button className="btn waves-effect waves-light" onClick = {this.saveClick}>
                             Save
                             </button>

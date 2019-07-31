@@ -1,8 +1,6 @@
 import React from "react";
 import SearchInput from "../components/SearchInput";
-import axios from "axios";
 import API from "../utils/API.js";
-import BooksCards from "../components/BooksCards";
 import ResultsContainer from "../components/ResultsContainer.js";
 
 class Search extends React.Component{
