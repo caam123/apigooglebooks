@@ -26,7 +26,7 @@ class BooksCards extends React.Component {
                 description: this.props.description
             }
             e.preventDefault();
-            alert(bookData);
+            console.log(bookData);
         }
     
     //
