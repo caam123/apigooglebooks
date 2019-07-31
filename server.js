@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const axios = require("axios");
 const mongoose = require("mongoose");
+const db = require("./models/Book.js");
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -16,18 +18,6 @@ if (process.env.NODE_ENV === "production") {
 /* app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 }); */
-
-//========================================================
-//     ROUTES                
-//========================================================
-
-//Estas RUTAS se despliegan en el 3001 ! [1]
-
-app.get("/test", (req, res)=>{
-  res.json({message:"This is testing for route"});
-});
-
-//Searching Books
 
 
 //========================================================
@@ -44,6 +34,45 @@ mongoose.connect(mongoURL, {useNewUrlParser: true})
   .catch((err) => {
     console.log(`Error connecting to mongoDB: ${err}`);
   });
+
+//========================================================
+//     ROUTES                
+//========================================================
+
+//Estas RUTAS se despliegan en el 3001 ! [1]
+
+app.get("/test", (req, res)=>{
+  res.json({message:"This is testing for route"});
+});
+
+//Routes for the Data Base
+
+//1. Creating a book entry in DB
+
+app.post("api/books", (req, res)=>{
+  db.Book.create(req, body)
+  .then(
+    (response) => {
+      res.json({successful: response});
+    }
+  ).catch(
+    (err) => {
+      res.json({error:err});
+    }
+  );
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
