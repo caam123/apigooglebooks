@@ -12,7 +12,7 @@ function Navbar(props){
                 Search</a>
               </li>
             <li>
-              <a href="#">
+              <a href="/saved">
                   <i className="material-icons">archive</i>
                   Saved</a>
             </li>

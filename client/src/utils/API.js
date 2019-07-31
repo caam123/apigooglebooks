@@ -15,6 +15,10 @@ export default {
 
     saveBook: (bookData) => {
         return axios.post("/api/books", bookData);
+    },
+
+    getBooks: () => {
+        return axios.get("/api/books");
     }
 
 

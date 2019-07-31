@@ -44,7 +44,7 @@ class Search extends React.Component{
                 value={this.state.search}
                 onChange={this.onChange} 
                 searchClick={this.searchClick}/>
-                <ResultsContainer bookData={this.state.results}/>
+                <ResultsContainer bookData={this.state.results} path={this.props.match.path}/>
 
                 {/*Condition for displaying the results*/}
             </main>

@@ -7,6 +7,7 @@ import axios from "axios";
 import SearchInput from "./components/SearchInput";
 import Navbar from "./components/Navbar";
 import Search from "./pages/Search.js";
+import Saved from "./pages/Saved.js";
 
 
 
@@ -34,6 +35,7 @@ class App extends React.Component {
           <Navbar/>
           <Switch>
             <Route exact path ="/" component = {Search}/>
+            <Route exact path = "/saved" component = {Saved}/>
           </Switch>
         </div>
       </Router>
