@@ -68,11 +68,10 @@ class BooksCards extends React.Component {
                             View
                             </button>
                             </a>
-                            <a href={this.props.link}>
-                            <button className="btn waves-effect waves-light" onClick = {this.saveClick}>
-                            Save
-                            </button>
-                            </a>
+                            {
+                                (this.props.path === "/") ? <button className="btn waves-effect waves-light" onClick = {this.saveClick} disabled={this.state.saved}>{(this.state.saved)?"Saved" :"Save"}>Save</button>: <button className="btn waves-effect waves-light danger"type="button" name="delete" disabled={this.state.deleted} >Delete</button>
+                            }
+                            
                         </div>
                     </div>
                 </div>

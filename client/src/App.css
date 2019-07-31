@@ -90,7 +90,7 @@ input .validate:focus{
   color:goldenrod;
 }
 
-a .btn:hover{
+.btn:hover{
   background-color: goldenrod!important;
   color:rgb(58,16,75);
 }
@@ -119,4 +119,25 @@ a .btn:hover{
 
 .card .card-action{
   padding:8px;
+}
+
+.btn:focus{
+  background-color: goldenrod;
+  color: rgb(58, 16, 75);
+
+}
+
+button[name=delete] {
+  background-color:rgb(116, 0, 0)!important;
+  color:white;
+}
+
+button[name=delete]:hover {
+  background-color:red!important;
+  color:white;
+}
+
+button[name=delete]:focus {
+  background-color:rgb(116, 0, 0)!important;
+  color:white;
 }
