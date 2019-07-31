@@ -3,11 +3,12 @@ import SearchInput from "../components/SearchInput";
 import axios from "axios";
 import API from "../utils/API.js";
 import BooksCards from "../components/BooksCards";
+import ResultsContainer from "../components/ResultsContainer.js";
 
 class Search extends React.Component{
 
     state = {
-        results:[""],
+        results:[],
         search: ""
     };
 
@@ -21,17 +22,20 @@ class Search extends React.Component{
 
     }
 
+  
+
     searchBook = query => {
         API.search(query)
-        .then (response => this.setState({results:response.data.items}))
+        .then (response =>{this.setState({results:response.data.items}); console.log(this.state.results)})
         .catch(err => console.log(err));
-        console.log(this.state.results);
+        
     };
 
     searchClick = e =>{
         e.preventDefault();
         this.searchBook(this.state.search)
     };
+ 
 
     render(){
         return(
@@ -40,7 +44,7 @@ class Search extends React.Component{
                 value={this.state.search}
                 onChange={this.onChange} 
                 searchClick={this.searchClick}/>
-                <BooksCards/>
+                <ResultsContainer bookData={this.state.results}/>
 
                 {/*Condition for displaying the results*/}
             </main>

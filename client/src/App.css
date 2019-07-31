@@ -78,6 +78,11 @@ input .validate:focus{
   width:100%;
   margin-bottom:50px; 
   font-weight: bold;
+  padding:10px;
+}
+
+.resContainer{
+  margin:10px;
 }
 
 .btn{
@@ -92,8 +97,9 @@ a .btn:hover{
 
 .card.horizontal .card-image img {
   border-radius: 2px 0 0 2px;
-  width: auto;
-  height:250px;
+  width: 170px!important;
+  height: 200px;
+  object-fit: contain;
 }
 
 .titulo{
