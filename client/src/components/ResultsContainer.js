@@ -16,7 +16,7 @@ function ResultsContainer (props){
         return(
             <div className="container">
                 <div className="row">
-                    <div ClassName ="col s12">
+                    <div className ="col s12">
                         <h4 className = "titleResults">Results</h4>
                     </div>
                 </div>

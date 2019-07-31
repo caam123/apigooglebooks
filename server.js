@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const axios = require("axios");
 const mongoose = require("mongoose");
-const db = require("./models/Book.js");
+const db = require("./models");
+const logger = require("morgan");
 
 
 const PORT = process.env.PORT || 3001;
@@ -12,6 +13,13 @@ const app = express();
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+//Middleware stuff
+
+app.use(logger("dev"));
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use(express.static("public"));
 
 // Send every request to the React app
 // Define any API routes before this runs
@@ -24,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 //     DataBase                
 //========================================================
 
-const mongoURL = process.env.PROD_MONGODB || "mongodb://localhost/apigooglebooks"
+const mongoURL = process.env.PROD_MONGODB || "mongodb://localhost:27017/apigooglebooks"
 
 
 mongoose.connect(mongoURL, {useNewUrlParser: true})
@@ -49,8 +57,8 @@ app.get("/test", (req, res)=>{
 
 //1. Creating a book entry in DB
 
-app.post("api/books", (req, res)=>{
-  db.Book.create(req, body)
+app.post("/api/books", (req, res)=>{
+  db.Book.create(req.body)
   .then(
     (response) => {
       res.json({successful: response});
@@ -62,18 +70,24 @@ app.post("api/books", (req, res)=>{
   );
 });
 
+//2. Get backm all books
+app.get("/api/books", (req, res) =>{
+  db.Book.find().then(
+    (booksData) =>{
+      res.json(booksData);
+    }
+  ).catch(
+    (err) => {
+      res.json({error:err});
+    }
+  );
+})
 
-
-
-
-
-
-
-
-
-
-
-
+// Send every other request to the React app
+// Define any API routes before this runs
+app.get("*", (req, res) => {
+res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 
 app.listen(PORT, function() {

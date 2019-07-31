@@ -1,4 +1,5 @@
 import React from "react";
+import API from "../utils/API";
 
 
 class BooksCards extends React.Component {
@@ -26,7 +27,16 @@ class BooksCards extends React.Component {
                 description: this.props.description
             }
             e.preventDefault();
-            console.log(bookData);
+            API.saveBook(bookData)
+            .then(
+                (response) => {
+                    console.log(response)
+                }
+            ).catch(
+                (err) => {
+                    console.log(err);
+                }
+            );
         }
     
     //

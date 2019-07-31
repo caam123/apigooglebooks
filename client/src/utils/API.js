@@ -11,6 +11,10 @@ export default {
 
     search: (query) => {
         return axios.get(BASEURL + query + "&Kkey=" + APIKEY);
+    },
+
+    saveBook: (bookData) => {
+        return axios.post("/api/books", bookData);
     }
 
 

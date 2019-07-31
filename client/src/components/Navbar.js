@@ -7,7 +7,7 @@ function Navbar(props){
         <nav>
           <ul>
             <li>
-              <a href="#">
+              <a href="/">
                 <i className="material-icons">search</i>
                 Search</a>
               </li>
