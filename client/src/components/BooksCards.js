@@ -69,8 +69,12 @@ class BooksCards extends React.Component {
                             </button>
                             </a>
                             {
-                                (this.props.path === "/") ? <button className="btn waves-effect waves-light" onClick = {this.saveClick} disabled={this.state.saved}>{(this.state.saved)?"Saved" :"Save"}>Save</button>: <button className="btn waves-effect waves-light danger"type="button" name="delete" disabled={this.state.deleted} >Delete</button>
-                            }
+                            // if this.props.path is "/" display save button else display Delete button
+                            (this.props.path === "/saved")? 
+                            <button type="button"className="btn waves-effect waves-light danger"  name="Delete" disabled={this.state.deleted}>Delete</button>
+                            :
+                            <button className="btn waves-effect waves-light" type="button" name="save" onClick={this.saveClick}> Save</button> 
+                        }
                             
                         </div>
                     </div>

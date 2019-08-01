@@ -19,6 +19,10 @@ export default {
 
     getBooks: () => {
         return axios.get("/api/books");
+    },
+
+    deleteBook: (id) => {
+        return axios.delete("api/books/" + id);
     }
 
 

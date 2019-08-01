@@ -83,6 +83,11 @@ app.get("/api/books", (req, res) =>{
   );
 })
 
+//3. Delete an entry from data base! 
+
+
+
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
