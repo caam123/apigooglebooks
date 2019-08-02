@@ -3,6 +3,7 @@ import BooksCards from "./BooksCards.js";
 
 
 function ResultsContainer (props){
+    
     if  (props.path ==="/"){
         if(props.bookData.length > 0){
 

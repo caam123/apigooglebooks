@@ -7,12 +7,14 @@ import {BrowserRouter as Router} from "react-router-dom";
 class BooksCards extends React.Component {
     //Insert functions here for buttons//
 
+
     constructor(props){
         //super props access to parents props
         super(props);
         this.state = {
             saved: false,
-            deleted:false
+            deleted:false,
+            books: []
         }
         //This part is important, the .bind(this) sirve para poder subir en el 'tree' y cachar las props, sino = undefined! :)
         this.saveClick = this.saveClick.bind(this);
@@ -49,8 +51,7 @@ class BooksCards extends React.Component {
             .then(
                 (response) =>  {
                     console.log(response);
-                    Router.dispatch(this.props.location, null)
-                    //window.location.reload();
+                    window.location.reload();
 
                 //function to reaload if not it's still there
                 
