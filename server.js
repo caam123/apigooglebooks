@@ -29,10 +29,10 @@ app.use(express.static("public"));
 
 
 //========================================================
-//     DataBase                
+//     DataBase before deployment   
 //========================================================
 
-const mongoURL = process.env.PROD_MONGODB || "mongodb://localhost:27017/apigooglebooks"
+/* const mongoURL = process.env.PROD_MONGODB || "mongodb://localhost:27017/apigooglebooks"
 
 
 mongoose.connect(mongoURL, {useNewUrlParser: true})
@@ -42,6 +42,14 @@ mongoose.connect(mongoURL, {useNewUrlParser: true})
   .catch((err) => {
     console.log(`Error connecting to mongoDB: ${err}`);
   });
+ */
+//========================================================
+//     DataBase for deployment   
+//========================================================
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://carlos:carlos123@ds359077.mlab.com:59077/heroku_3q43hv9k")
+
+
 
 //========================================================
 //     ROUTES                
