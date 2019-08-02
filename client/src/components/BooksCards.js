@@ -73,15 +73,15 @@ class BooksCards extends React.Component {
             <div className = "row">
             <div className = "col s12">
                 <div className="card horizontal col s12" id={this.props.id}>
-                    <div className="card-image">
+                    <div className="card-image col s12">
                     {(this.props.img)? <img src= {
                         // if smallthubmail exists on this.props.img use that else if thumbnail exists on this.props.img use that else leave src empty
                         (this.props.img.smallThumbnail)? this.props.img.smallThumbnail:
                         (this.props.img)? this.props.img: ""
                     } alt="book cover"/>: null}
                     </div>
-                    <div className="card-stacked">
-                        <div className="card-content">
+                    <div className="card-stacked col s12">
+                        <div className="card-content col s12">
                             <p className="titulo col s12">{this.props.title}</p>
                             <p className="autores col s12">{this.props.authors ? this.props.authors.join(', '): "N/A"}</p>
                             <p className="descripcion col s12">{this.props.description}</p>

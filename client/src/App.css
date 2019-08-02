@@ -97,9 +97,33 @@ input .validate:focus{
 
 .card.horizontal .card-image img {
   border-radius: 2px 0 0 2px;
-  width: 170px!important;
+  width: 170px;
   height: 200px;
   object-fit: contain;
+}
+
+@media only screen and (max-width:768px){
+
+  .card.horizontal{
+  display:block;
+  width:100%;
+}
+
+.card.horizontal .card-image{
+  width:100%;
+  padding:0 2.5rem;
+}
+  .card.horizontal .card-image img{
+    width:100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    
+  }
+  img{
+    width:100%;
+    height: auto;
+  }
 }
 
 .titulo{
