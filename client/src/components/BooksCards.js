@@ -1,5 +1,7 @@
 import React from "react";
 import API from "../utils/API";
+//Just to reload after delete the entry in saved
+import {BrowserRouter as Router} from "react-router-dom";
 
 
 class BooksCards extends React.Component {
@@ -12,8 +14,9 @@ class BooksCards extends React.Component {
             saved: false,
             deleted:false
         }
+        //This part is important, the .bind(this) sirve para poder subir en el 'tree' y cachar las props, sino = undefined! :)
         this.saveClick = this.saveClick.bind(this);
-        //this.deleteClick = this.deleteClick.bind(this);
+        this.deleteClick = this.deleteClick.bind(this);
 
     }
 
@@ -38,7 +41,27 @@ class BooksCards extends React.Component {
                 }
             );
         }
-    
+
+        deleteClick = function(e){
+            this.setState({deleted: true});
+            e.preventDefault();
+            API.deleteBook(this.props.id)
+            .then(
+                (response) =>  {
+                    console.log(response);
+                    Router.dispatch(this.props.location, null)
+                    //window.location.reload();
+
+                //function to reaload if not it's still there
+                
+                }
+            ).catch(
+                (err) => {
+                    console.log(err);
+                }
+            );
+
+        };
     //
     render() {
         return(
@@ -71,9 +94,9 @@ class BooksCards extends React.Component {
                             {
                             // if this.props.path is "/" display save button else display Delete button
                             (this.props.path === "/saved")? 
-                            <button type="button"className="btn waves-effect waves-light danger"  name="Delete" disabled={this.state.deleted}>Delete</button>
+                            <button type="button"className="btn waves-effect waves-light danger"  name="Delete" disabled={this.state.deleted} onClick={this.deleteClick}>Delete</button>
                             :
-                            <button className="btn waves-effect waves-light" type="button" name="save" onClick={this.saveClick}> Save</button> 
+                            <button className="btn waves-effect waves-light" type="button" name="save" disabled={this.state.saved} onClick={this.saveClick}> Save</button> 
                         }
                             
                         </div>

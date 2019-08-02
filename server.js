@@ -84,6 +84,17 @@ app.get("/api/books", (req, res) =>{
 })
 
 //3. Delete an entry from data base! 
+app.delete("/api/books/:id", (req,res)=>{
+  db.Book.findByIdAndDelete(req.params.id).then(
+    (response) => {
+      res.json({successful:response});
+    }
+  ).catch(
+    (err) => {
+      res.json({error:err});
+    }
+  );
+});
 
 
 

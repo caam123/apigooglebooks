@@ -4,6 +4,8 @@ import BooksCards from "./BooksCards.js";
 
 function ResultsContainer (props){
     if  (props.path ==="/"){
+        if(props.bookData.length > 0){
+
             return(
                 <div className="container">
                     <div className="row">
@@ -24,7 +26,12 @@ function ResultsContainer (props){
                         key = {book.id}/>
                     })}
                 </div>
+           
             );
+                }
+                return(
+                    <div></div>
+                )
     } else if(props.path === "/saved"){
 
             return(
@@ -43,7 +50,6 @@ function ResultsContainer (props){
                     description = {book.description}
                     link = {book.link}
                     img = {book.img}
-
                     path= {props.path}
                     id = {book._id}
                     key = {book._id}/>
