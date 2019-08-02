@@ -82,11 +82,11 @@ class BooksCards extends React.Component {
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
-                            <p className="titulo">{this.props.title}</p>
-                            <p className="autores">{this.props.authors ? this.props.authors.join(', '): "N/A"}</p>
-                            <p className="descripcion">{this.props.description}</p>
+                            <p className="titulo col s12">{this.props.title}</p>
+                            <p className="autores col s12">{this.props.authors ? this.props.authors.join(', '): "N/A"}</p>
+                            <p className="descripcion col s12">{this.props.description}</p>
                         </div>
-                        <div className="card-action right-align">
+                        <div className="card-action right-align col s12">
                             <a href={this.props.link} target="blank">
                             <button className="btn waves-effect waves-light">
                             View
