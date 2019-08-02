@@ -17,7 +17,7 @@ class App extends React.Component {
           <Navbar/>
           <Switch>
           <Route exact path="/" component={Search}/>
-            <Route exact path="/saved" component={Saved}/>
+          <Route path="/saved" component={Saved}/>
           </Switch>
         </div>
       </Router>
