@@ -47,7 +47,7 @@ mongoose.connect(mongoURL, {useNewUrlParser: true})
 //     DataBase for deployment   
 //========================================================
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://carlos:carlos123@ds359077.mlab.com:59077/heroku_3q43hv9k")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user:user123@ds359077.mlab.com:59077/heroku_3q43hv9k")
 
 
 
